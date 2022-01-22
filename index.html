@@ -757,6 +757,42 @@
 
         });
 
+        $("#plus").on("click", function() {
+            var pricex = parseInt($("#pricex").text());
+            if (pricex >= 1) {
+                $("#pricex").html(pricex + 1);
+                doCal();
+            }
+        })
+
+        $("#minus").on("click", function() {
+
+            var pricex = parseInt($("#pricex").text());
+            if (pricex > 1) {
+                $("#pricex").html(pricex - 1);
+                doCal();
+            }
+        })
+
+        $("#ape-max").on("click", function() {
+
+            $("#pricex").html($("#maxVal").val());
+            doCal();
+
+        })
+
+        function doCal() {
+            var ethAmount = parseFloat($("#ethVal").val());
+            var ethVal = parseInt($("#pricex").text());
+            $("#totals").html(ethAmount * ethVal);
+        }
+
+        function getRndInteger(min, max) {
+            var rand = Math.floor(Math.random() * (max - min)) + min;
+            console.log('Rand Number=' + rand);
+            $("#num_1").html(rand);
+        }
+
 
         window.addEventListener('load', async() => {
             if (window.ethereum) {
@@ -830,43 +866,6 @@
             accounts = await ethereum.request({
                 method: 'eth_requestAccounts'
             });
-        }
-
-
-        $("#plus").on("click", function() {
-            var pricex = parseInt($("#pricex").text());
-            if (pricex >= 1) {
-                $("#pricex").html(pricex + 1);
-                doCal();
-            }
-        })
-
-        $("#minus").on("click", function() {
-
-            var pricex = parseInt($("#pricex").text());
-            if (pricex > 1) {
-                $("#pricex").html(pricex - 1);
-                doCal();
-            }
-        })
-
-        $("#ape-max").on("click", function() {
-
-            $("#pricex").html($("#maxVal").val());
-            doCal();
-
-        })
-
-        function doCal() {
-            var ethAmount = parseFloat($("#ethVal").val());
-            var ethVal = parseInt($("#pricex").text());
-            $("#totals").html(ethAmount * ethVal);
-        }
-
-        function getRndInteger(min, max) {
-            var rand = Math.floor(Math.random() * (max - min)) + min;
-            console.log('Rand Number=' + rand);
-            $("#num_1").html(rand);
         }
     </script>
 
