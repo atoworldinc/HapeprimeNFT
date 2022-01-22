@@ -360,6 +360,12 @@ a:hover .btn-big:hover span:hover {
     background: rgba(0, 0, 0, 0.5);
 }
 
+@media(max-width:740px) {
+    .mintContainer {
+        width: 90%;
+    }
+}
+
 .mintContainer .supplyDiv {
     margin-top: 30px;
     display: flex;
